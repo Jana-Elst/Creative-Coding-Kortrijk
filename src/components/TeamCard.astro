@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+const { person } = Astro.props;
 ---
 
 <article>
@@ -7,16 +8,16 @@ import { Image } from "astro:assets";
     <div class="profilepic">
       <Image
         alt=""
-        src={##PIC##}
+        src={person.data.pic}
         width={300}
         height={300}
-        alt={`Profile pic of ${##NAME##}`}
+        alt={`Profile pic of ${person.data.name}`}
       />
     </div>
   </div>
-  <p class="name"><a href={`/team/${##SLUG##}`}>{##NAME##}</a></p>
-  <p class="function">{##FUNCTION##}</p>
-  <p class="bio">{##BIO##}</p>
+  <p class="name"><a href={`/team/${person.slug}`}>{person.data.name}</a></p>
+  <p class="function">{person.data.function}</p>
+  <p class="bio">{person.data.bio}</p>
 </article>
 
 <style>
